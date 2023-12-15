@@ -1,0 +1,14 @@
+{
+    "name": "youcode/modernisation-des-interactions-avec-la-base-de-donn-es",
+    "autoload": {
+        "psr-4": {
+            "classes\\": "classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "medELHattab"
+        }
+    ],
+    "require": {}
+}
