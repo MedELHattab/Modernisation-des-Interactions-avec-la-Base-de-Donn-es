@@ -2,6 +2,7 @@
 
 namespace MyCrud; // Adjust the namespace to follow PSR-1
 
+require("ORM.php");
 class DatabaseHandler
 {
     private $mysqli;
