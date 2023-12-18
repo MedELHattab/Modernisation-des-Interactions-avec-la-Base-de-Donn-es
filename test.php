@@ -1,25 +1,27 @@
 <?php
-use MyCrud\DatabaseHandler;
-use MyCrud\TableORM;
+
 require ("ORM.php");
-$db = new DatabaseHandler('localhost', 'root', '', 'task_db');
-$tableORM = new TableORM($db, 'your_table');
 
-// Insert example
-$insertData = array('column1' => 'value1', 'column2' => 'value2');
-$tableORM->insertRecord($insertData);
+$tableORM = new TableORM('test');
 
-// Update example
-$updateData = array('column1' => 'new_value1', 'column2' => 'new_value2');
-$tableORM->updateRecord($updateData, 1);
+// Example 1: Insert a record
+// $insertData = array('column1' => 'value1', 'column2' => 'value2');
+// $result = $tableORM->insertRecord($insertData);
+// echo "Insert Result: " . ($result ? "Success" : "Failure") . PHP_EOL;
 
-// Delete example
-$tableORM->deleteRecord(1);
+// Example 2: Update a record with ID 1
+$updateData = array('column1' => 'new_value1');
+$result = $tableORM->updateRecord($updateData, 1);
+echo "Update Result: " . ($result ? "Success" : "Failure") . PHP_EOL;
 
-// Select example
+// Example 3: Delete a record with ID 1
+$result = $tableORM->deleteRecord(1);
+echo "Delete Result: " . ($result ? "Success" : "Failure") . PHP_EOL;
+
+// Example 4: Select records with a WHERE clause
 $selectResult = $tableORM->selectRecords('column1, column2', 'column1 = "value1"');
-while ($row = mysqli_fetch_assoc($selectResult)) {
-    // Process each row
+echo "Selected Records:" . PHP_EOL;
+foreach ($selectResult as $row) {
+    print_r($row);
 }
-// Close the connection
-$db->closeConnection();
+
