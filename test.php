@@ -1,5 +1,7 @@
 <?php
-require ("./vendor/autoload.php");
+use MyCrud\DatabaseHandler;
+use MyCrud\TableORM;
+require ("ORM.php");
 $db = new DatabaseHandler('localhost', 'root', '', 'task_db');
 $tableORM = new TableORM($db, 'your_table');
 
@@ -19,6 +21,5 @@ $selectResult = $tableORM->selectRecords('column1, column2', 'column1 = "value1"
 while ($row = mysqli_fetch_assoc($selectResult)) {
     // Process each row
 }
-
 // Close the connection
 $db->closeConnection();

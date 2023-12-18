@@ -1,7 +1,7 @@
 <?php
 
 namespace MyCrud; // Adjust the namespace to follow PSR-1
-
+require ("dynamic_crud.php");
 class BaseORM
 {
     protected $db;
